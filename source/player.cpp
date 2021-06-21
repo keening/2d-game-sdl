@@ -23,7 +23,7 @@ void Player::move(PlayerDirection direction)
     switch(direction)
     {
         case UP:
-            current_position = m_x;
+            current_position = m_y;
             new_position = current_position - m_speed;
             m_y = new_position;
             break;
@@ -41,7 +41,7 @@ void Player::move(PlayerDirection direction)
             break;
 
         case RIGHT:
-            current_position = m_y;
+            current_position = m_x;
             new_position = current_position + m_speed;
             m_x = new_position;
             break;

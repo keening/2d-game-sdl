@@ -12,5 +12,5 @@ class Player : Sprite {
         void move(PlayerDirection direction);
 
     private:
-        i32 m_x, m_y, m_w, m_h, m_speed = 5;
+        i32 m_x, m_y, m_w, m_h, m_speed = 10;
 };
