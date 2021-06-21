@@ -12,7 +12,7 @@ Application::~Application() {}
 void Application::main_loop() 
 {
     Sprite atlas(m_display, "./assets/tileset.png");
-    Player player(m_display, atlas, 240, 200, 20, 20);
+    Player player(m_display, atlas, 0, 0, 20, 20);
 
     while (m_is_running) 
     {
@@ -33,27 +33,29 @@ void Application::handle_input(Player &player)
         {
             m_is_running = false;
         }
-
-        switch (event.key.keysym.sym)
+        if (event.type == SDL_KEYDOWN)
         {
-            case SDLK_LEFT:
-                player.move(LEFT, 2);
-                break;
+            switch (event.key.keysym.sym)
+            {
+                case SDLK_LEFT:
+                    player.move(LEFT);
+                    break;
 
-            case SDLK_RIGHT:
-                player.move(RIGHT, 2);
-                break;
+                case SDLK_RIGHT:
+                    player.move(RIGHT);
+                    break;
 
-            case SDLK_UP:
-                player.move(UP, 2);
-                break;
+                case SDLK_UP:
+                    player.move(UP);
+                    break;
 
-            case SDLK_DOWN:
-                player.move(DOWN, 2);
-                break;
+                case SDLK_DOWN:
+                    player.move(DOWN);
+                    break;
 
-            default:
-                break;
+                default:
+                    break;
+            }
         }
     }
 }
