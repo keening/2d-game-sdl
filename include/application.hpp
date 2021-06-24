@@ -10,7 +10,7 @@ class Application {
 
     private:
         void main_loop();
-        void handle_input(Player &player);
+        void handle_input();
 
         bool m_is_running = false;
         Display m_display;

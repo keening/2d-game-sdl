@@ -1,4 +1,4 @@
-OBJS =	source/main.cpp source/display.cpp source/application.cpp source/sprite.cpp source/player.cpp
+OBJS =	src/main.cpp src/display.cpp src/application.cpp src/sprite.cpp
 
 CC = g++
 
