@@ -1,7 +1,6 @@
 #pragma once
 #include "../include/display.hpp"
-
-class Player;
+#include "../include/player.hpp"
 
 class Application {
     public:
@@ -13,5 +12,6 @@ class Application {
         void handle_input();
 
         bool m_is_running = false;
+        Player m_player;
         Display m_display;
 };

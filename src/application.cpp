@@ -1,5 +1,4 @@
 #include "../include/application.hpp"
-#include "../include/sprite.hpp"
 
 Application::Application() : m_is_running (true)
 {
@@ -10,14 +9,13 @@ Application::~Application() {}
 
 void Application::main_loop()
 {
-    SDL_Rect rect = { .x = 932, .y = 2432, .w = 32, .h = 32};
-    Sprite test(m_display, "./assets/tileset.png", &rect);
+    m_player = Player(m_display, 128, 128);
+
     while (m_is_running) 
     {
         handle_input();
         m_display.clear();
-        SDL_Rect r = {.x = 128, .y = 128, .w = 32, .h = 32};
-        test.draw(m_display, &r);
+        m_player.draw(m_display);
         m_display.render();
     }
 }
@@ -37,15 +35,19 @@ void Application::handle_input()
 
     if (current_keystate[SDL_SCANCODE_UP])
     {
+        m_player.move(UP);
     }
     else if (current_keystate[SDL_SCANCODE_DOWN])
     {
+        m_player.move(DOWN);
     }
     else if (current_keystate[SDL_SCANCODE_LEFT])
     {
+        m_player.move(LEFT);
     }
     else if (current_keystate[SDL_SCANCODE_RIGHT])
     {
+        m_player.move(RIGHT);
     }
     else if (current_keystate[SDL_SCANCODE_ESCAPE])
     {
